@@ -8,6 +8,7 @@ local function configure_lsp_and_autocompletion(use)
       local lspconfig = require("lspconfig")
       lspconfig.gopls.setup { capabilities = capabilities }
       lspconfig.lua_ls.setup { capabilities = capabilities }
+      lspconfig.bashls.setup { capabilities = capabilities }
     end
   }
 
