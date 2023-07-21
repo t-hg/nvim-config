@@ -64,11 +64,4 @@ return require("packer").startup(function(use)
 
   configure_lsp_and_autocompletion(use)
   configure_telescope(use)
-
-  use {
-    "mg979/vim-visual-multi",
-    config = function()
-      vim.g.VM_leader = vim.g.mapleader
-    end
-  }
 end)
