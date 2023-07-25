@@ -58,10 +58,27 @@ local function configure_telescope(use)
   }
 end
 
+local function configure_md_image_support(use)
+  use {
+    "t-hg/nvim-md-paste-image",
+    config = function()
+      require("nvim-md-paste-image").setup()
+    end
+  }
+
+  use {
+    "t-hg/nvim-md-render-image",
+    config = function()
+      require("nvim-md-render-image").setup()
+    end
+  }
+end
+
 return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
   use "nvim-treesitter/nvim-treesitter"
 
   configure_lsp_and_autocompletion(use)
   configure_telescope(use)
+  configure_md_image_support(use)
 end)
