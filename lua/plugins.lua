@@ -1,3 +1,18 @@
+local function configure_syntax_highlighting(use)
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    config = function()
+      require("nvim-treesitter.configs").setup {
+        ensure_installed = "all",
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false,
+        }
+      }
+    end
+  }
+end
+
 local function configure_lsp_and_autocompletion(use)
   use "neovim/nvim-lspconfig"
 
@@ -76,8 +91,8 @@ end
 
 return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
-  use "nvim-treesitter/nvim-treesitter"
 
+  configure_syntax_highlighting(use)
   configure_lsp_and_autocompletion(use)
   configure_telescope(use)
   configure_md_image_support(use)
