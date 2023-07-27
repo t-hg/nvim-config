@@ -91,6 +91,17 @@ local function configure_md_image_support(use)
   }
 end
 
+local function configure_file_tree(use)
+  use {
+  "nvim-neo-tree/neo-tree.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
+  }
+end
+
 return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
 
@@ -98,4 +109,5 @@ return require("packer").startup(function(use)
   configure_lsp_and_autocompletion(use)
   configure_telescope(use)
   configure_md_image_support(use)
+  configure_file_tree(use)
 end)
