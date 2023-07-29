@@ -128,7 +128,7 @@ local function configure_theme(use)
           green = "#98C379",
           gutter_fg = "#4B5263",
           menu = "#21222C",
-          nontext = "#3B4048",
+          nontext = "#4B5263",
           orange = "#FFB86C",
           pink = "#FF79C6",
           purple = "#C678DD",
