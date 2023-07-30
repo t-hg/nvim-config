@@ -66,9 +66,12 @@ local function configure_formatting(use)
 end
 
 local function configure_telescope(use)
-  use("nvim-lua/plenary.nvim")
   use({
     "nvim-telescope/telescope.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons"
+    },
     config = function()
       local builtin = require("telescope.builtin")
       vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
@@ -92,17 +95,6 @@ local function configure_md_image_support(use)
     config = function()
       require("nvim-md-render-image").setup()
     end,
-  })
-end
-
-local function configure_file_tree(use)
-  use({
-    "nvim-neo-tree/neo-tree.nvim",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    },
   })
 end
 
@@ -152,6 +144,5 @@ return require("packer").startup(function(use)
   configure_formatting(use)
   configure_telescope(use)
   configure_md_image_support(use)
-  configure_file_tree(use)
   configure_theme(use)
 end)
