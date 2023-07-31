@@ -106,7 +106,7 @@ local function configure_theme(use)
       theme.setup({
         colors = {
           bg = "#282C34",
-          black = "#282C34",
+          black = "#21222C",
           bright_blue = "#61AFEF",
           bright_cyan = "#56B6C2",
           bright_green = "#98C379",
