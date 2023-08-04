@@ -16,7 +16,14 @@ local function configure_syntax_highlighting(use)
 end
 
 local function configure_lsp_and_autocompletion(use)
-  use("neovim/nvim-lspconfig")
+  use({
+    "neovim/nvim-lspconfig",
+    config = function()
+      vim.api.nvim_create_user_command("LspRename", function()
+        vim.lsp.buf.rename()
+      end, {})
+    end,
+  })
 
   use({
     "hrsh7th/cmp-nvim-lsp",
@@ -70,7 +77,7 @@ local function configure_telescope(use)
     "nvim-telescope/telescope.nvim",
     requires = {
       "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons"
+      "nvim-tree/nvim-web-devicons",
     },
     config = function()
       local builtin = require("telescope.builtin")
@@ -145,4 +152,11 @@ return require("packer").startup(function(use)
   configure_telescope(use)
   configure_md_image_support(use)
   configure_theme(use)
+
+  use({
+    "t-hg/nvim-block-text",
+    config = function()
+      require("nvim-block-text").setup()
+    end,
+  })
 end)
