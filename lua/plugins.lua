@@ -143,6 +143,22 @@ local function configure_theme(use)
   })
 end
 
+local function configure_text_manipulation_helpers(use)
+  use({
+    "t-hg/nvim-block-text",
+    config = function()
+      require("nvim-block-text").setup()
+    end,
+  })
+
+  use({
+    "t-hg/nvim-align-pattern",
+    config = function()
+      require("nvim-align-pattern").setup()
+    end,
+  })
+end
+
 return require("packer").startup(function(use)
   use("wbthomason/packer.nvim")
 
@@ -152,11 +168,5 @@ return require("packer").startup(function(use)
   configure_telescope(use)
   configure_md_image_support(use)
   configure_theme(use)
-
-  use({
-    "t-hg/nvim-block-text",
-    config = function()
-      require("nvim-block-text").setup()
-    end,
-  })
+  configure_text_manipulation_helpers(use)
 end)
