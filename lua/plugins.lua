@@ -72,7 +72,7 @@ local function configure_formatting(use)
   use("sbdchd/neoformat")
 end
 
-local function configure_telescope(use)
+local function configure_fuzzy_finder(use)
   use({
     "nvim-telescope/telescope.nvim",
     requires = {
@@ -86,6 +86,17 @@ local function configure_telescope(use)
       vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
       vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
     end,
+  })
+end
+
+local function configure_file_tree(use)
+  use({
+    "nvim-neo-tree/neo-tree.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    },
   })
 end
 
@@ -165,7 +176,8 @@ return require("packer").startup(function(use)
   configure_syntax_highlighting(use)
   configure_lsp_and_autocompletion(use)
   configure_formatting(use)
-  configure_telescope(use)
+  configure_fuzzy_finder(use)
+  configure_file_tree(use)
   configure_md_image_support(use)
   configure_theme(use)
   configure_text_manipulation_helpers(use)
