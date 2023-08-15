@@ -1,6 +1,7 @@
 vim = vim
 
 vim.g.mapleader = " "
+
 vim.keymap.set("t", "<C-w>N", "<C-\\><C-n>")
 vim.keymap.set("t", "<C-w>h", "<C-\\><C-n><C-w>h")
 vim.keymap.set("t", "<C-w>j", "<C-\\><C-n><C-w>j")
