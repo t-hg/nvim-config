@@ -30,9 +30,10 @@ local function configure_lsp_and_autocompletion(use)
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require("lspconfig")
+      lspconfig.bashls.setup({ capabilities = capabilities })
       lspconfig.gopls.setup({ capabilities = capabilities })
       lspconfig.lua_ls.setup({ capabilities = capabilities })
-      lspconfig.bashls.setup({ capabilities = capabilities })
+      lspconfig.tsserver.setup({ capabilities = capabilities })
     end,
   })
 
