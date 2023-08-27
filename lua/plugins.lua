@@ -22,6 +22,8 @@ local function configure_lsp_and_autocompletion(use)
       vim.api.nvim_create_user_command("LspRename", function()
         vim.lsp.buf.rename()
       end, {})
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
+      vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {})
     end,
   })
 
