@@ -22,8 +22,19 @@ local function configure_lsp_and_autocompletion(use)
       vim.api.nvim_create_user_command("LspRename", function()
         vim.lsp.buf.rename()
       end, {})
-      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-      vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {})
+      vim.api.nvim_create_user_command("LspQuickfix", function()
+        vim.lsp.buf.code_action()
+      end, {})
+      vim.api.nvim_create_user_command("LspGoToDefinition", function()
+        vim.lsp.buf.definition()
+      end, {})
+      vim.api.nvim_create_user_command("LspGoToDeclaration", function()
+        vim.lsp.buf.declaration()
+      end, {})
+      vim.keymap.set("n", "cr", ":LspRename<CR>", {})
+      vim.keymap.set("n", "cq", ":LspQuickfix<CR>", {})
+      vim.keymap.set("n", "gd", ":LspGoToDefinition<CR>", {})
+      vim.keymap.set("n", "gD", ":LspGoToDeclaration<CR>", {})
     end,
   })
 
@@ -176,10 +187,10 @@ end
 
 local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
+    fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+    vim.cmd([[packadd packer.nvim]])
     return true
   end
   return false
@@ -200,6 +211,6 @@ return require("packer").startup(function(use)
   configure_text_manipulation_helpers(use)
 
   if packer_bootstrap then
-    require('packer').sync()
+    require("packer").sync()
   end
 end)
