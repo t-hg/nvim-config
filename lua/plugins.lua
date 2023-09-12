@@ -115,6 +115,19 @@ local function configure_file_tree(use)
   })
 end
 
+local function configure_bufferline(use)
+  use({
+    "akinsho/bufferline.nvim",
+    requires = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      vim.opt.termguicolors = true
+      require("bufferline").setup({})
+    end
+  })
+end
+
 local function configure_md_image_support(use)
   use({
     "t-hg/nvim-md-paste-image",
@@ -206,6 +219,7 @@ return require("packer").startup(function(use)
   configure_formatting(use)
   configure_fuzzy_finder(use)
   configure_file_tree(use)
+  configure_bufferline(use)
   configure_md_image_support(use)
   configure_theme(use)
   configure_text_manipulation_helpers(use)
