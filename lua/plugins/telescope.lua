@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  requires = {
+  dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
   },
