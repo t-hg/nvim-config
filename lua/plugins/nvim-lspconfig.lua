@@ -14,10 +14,10 @@ return {
       vim.api.nvim_create_user_command("LspGoToDeclaration", function()
         vim.lsp.buf.declaration()
       end, {})
-      vim.keymap.set("n", "cr", ":LspRename<CR>", {})
-      vim.keymap.set("n", "cq", ":LspQuickfix<CR>", {})
-      vim.keymap.set("n", "gd", ":LspGoToDefinition<CR>", {})
-      vim.keymap.set("n", "gD", ":LspGoToDeclaration<CR>", {})
+      vim.keymap.set("n", "<leader>cr", ":LspRename<CR>", {})
+      vim.keymap.set("n", "<leader>cq", ":LspQuickfix<CR>", {})
+      vim.keymap.set("n", "<leader>gd", ":LspGoToDefinition<CR>", {})
+      vim.keymap.set("n", "<leader>gD", ":LspGoToDeclaration<CR>", {})
     end,
   },
   {
