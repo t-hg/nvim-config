@@ -14,8 +14,12 @@ return {
       vim.api.nvim_create_user_command("LspGoToDeclaration", function()
         vim.lsp.buf.declaration()
       end, {})
+      vim.api.nvim_create_user_command("LspShowLineDiagnostics", function()
+        vim.diagnostic.open_float()
+      end, {})
       vim.keymap.set("n", "<leader>cr", ":LspRename<CR>", {})
       vim.keymap.set("n", "<leader>cq", ":LspQuickfix<CR>", {})
+      vim.keymap.set("n", "<leader>cd", ":LspShowLineDiagnostics<CR>", {})
       vim.keymap.set("n", "<leader>gd", ":LspGoToDefinition<CR>", {})
       vim.keymap.set("n", "<leader>gD", ":LspGoToDeclaration<CR>", {})
     end,
