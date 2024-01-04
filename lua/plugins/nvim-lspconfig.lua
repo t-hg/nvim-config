@@ -36,6 +36,7 @@ return {
       lspconfig.lua_ls.setup({ capabilities = capabilities })
       lspconfig.pyright.setup({ capabilities = capabilities })
       lspconfig.tsserver.setup({ capabilities = capabilities })
+      lspconfig.zls.setup({ capabilities = capabilities })
     end,
   },
   "hrsh7th/cmp-vsnip",
