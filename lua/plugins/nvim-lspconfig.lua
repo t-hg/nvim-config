@@ -31,6 +31,7 @@ return {
       local lspconfig = require("lspconfig")
       lspconfig.bashls.setup({ capabilities = capabilities })
       lspconfig.cssls.setup({ capabilities = capabilities })
+      lspconfig.gleam.setup({ capabilities = capabilities })
       lspconfig.gopls.setup({ capabilities = capabilities })
       lspconfig.jdtls.setup({ capabilities = capabilities })
       lspconfig.lua_ls.setup({ capabilities = capabilities })
