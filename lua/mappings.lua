@@ -24,6 +24,8 @@ vim.keymap.set("n", "yi'", "\"+yi'", { noremap = true })
 vim.keymap.set("n", "yit", "\"+yit", { noremap = true })
 vim.keymap.set("n", "yi(", "\"+yi(", { noremap = true })
 vim.keymap.set("n", "yi[", "\"+yi[", { noremap = true })
+vim.keymap.set("n", "yiw", "\"+yiw", { noremap = true })
+vim.keymap.set("n", "yip", "\"+yip", { noremap = true })
 vim.keymap.set("v", "y", "\"+y", { noremap = true })
 
 -- Cut to clipboard
@@ -34,7 +36,21 @@ vim.keymap.set("n", "di'", "\"+di'", { noremap = true })
 vim.keymap.set("n", "dit", "\"+dit", { noremap = true })
 vim.keymap.set("n", "di(", "\"+di(", { noremap = true })
 vim.keymap.set("n", "di[", "\"+di[", { noremap = true })
+vim.keymap.set("n", "diw", "\"+diw", { noremap = true })
+vim.keymap.set("n", "dip", "\"+dip", { noremap = true })
 vim.keymap.set("v", "d", "\"+d", { noremap = true })
+
+-- Change to clipboard
+vim.keymap.set("n", "C", "\"+c$", { noremap = true })
+vim.keymap.set("n", "cc", "\"+cc", { noremap = true })
+vim.keymap.set("n", "ci\"", "\"+ci\"", { noremap = true })
+vim.keymap.set("n", "ci'", "\"+ci'", { noremap = true })
+vim.keymap.set("n", "cit", "\"+cit", { noremap = true })
+vim.keymap.set("n", "ci(", "\"+ci(", { noremap = true })
+vim.keymap.set("n", "ci[", "\"+ci[", { noremap = true })
+vim.keymap.set("n", "ciw", "\"+ciw", { noremap = true })
+vim.keymap.set("n", "cip", "\"+cip", { noremap = true })
+vim.keymap.set("v", "c", "\"+c", { noremap = true })
 
 -- Paste from clipboard
 vim.keymap.set("n", "p", "\"+p", { noremap = true })
